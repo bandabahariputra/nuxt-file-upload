@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark {
+  @apply bg-neutral-950 text-neutral-200;
+}
+
+.light {
+  @apply bg-neutral-50 text-neutral-950;
+}
