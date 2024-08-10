@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.18.4",
+    "@uploadthing/nuxt": "^6.5.9",
     "nuxt": "^3.12.4",
+    "uploadthing": "^6.13.2",
     "vue": "latest"
   },
   "devDependencies": {
@@ -30,6 +32,7 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.7",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vue-tsc": "^2"
   }
 }

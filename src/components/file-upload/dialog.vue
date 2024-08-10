@@ -1,15 +1,19 @@
 <script setup lang="ts">
+const { onUpload, uploadFiles, isUploading, progresses, uploadedFiles } =
+  useUploadFile('imageUploader');
+
 const isOpen = ref(false);
 </script>
 
 <template>
-  <div class="py-6">
+  <div class="space-y-6 py-6">
     <UButton
       variant="solid"
       color="gray"
       label="Upload File"
       @click="isOpen = true"
     />
+    <FileUploadUploadedList :files="uploadedFiles" />
 
     <UModal
       v-model="isOpen"
@@ -27,8 +31,15 @@ const isOpen = ref(false);
           </div>
         </template>
         <div class="space-y-2">
-          <FileUploadUploader />
-          <FileUploadUploadingProgress />
+          <FileUploadUploader
+            :disabled="isUploading"
+            @upload="onUpload"
+          />
+          <FileUploadUploadingProgress
+            v-if="progresses && uploadFiles"
+            :progress="progresses.progress"
+            :file="uploadFiles[0]"
+          />
         </div>
       </UCard>
     </UModal>

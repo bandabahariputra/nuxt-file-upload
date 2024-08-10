@@ -17,7 +17,6 @@ const items = [
       <template #item="{ item }">
         <FileUploadBasic v-if="item.key === 'basic'" />
         <FileUploadDialog v-if="item.key === 'dialog'" />
-        <FileUploadUploadedList />
       </template>
     </UTabs>
   </div>

@@ -19,11 +19,22 @@ export default defineNuxtConfig({
   },
   srcDir: 'src',
   css: ['@/assets/css/main.css'],
-  modules: ['@nuxt/eslint', '@nuxt/ui'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@uploadthing/nuxt'],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  uploadthing: {
+    /**
+     * Path to your router definition file
+     * @default `~/server/uploadthing.ts`
+     */
+    routerPath: '@/server/lib/uploadthing.ts',
+    logLevel: 'info',
+  },
+  typescript: {
+    typeCheck: true,
   },
 });
