@@ -1,14 +1,12 @@
 import type { ClientUploadedFileData } from 'uploadthing/types';
 
-import type { UploadRouter } from '../server/lib/uploadthing';
-
-export const useUploadFile = (endpoint: keyof UploadRouter) => {
+export const useUploadFile = defineStore('upload-file', () => {
   const uploadFiles = ref<File[]>();
   const uploadedFiles = ref<ClientUploadedFileData<null>[]>([]);
   const isUploading = ref(false);
   const progresses = ref<Record<string, number>>();
 
-  const { startUpload } = useUploadThing(endpoint, {
+  const { startUpload } = useUploadThing('imageUploader', {
     onUploadProgress: (p: number) => {
       progresses.value = {
         progress: p,
@@ -35,4 +33,4 @@ export const useUploadFile = (endpoint: keyof UploadRouter) => {
   };
 
   return { onUpload, uploadFiles, uploadedFiles, isUploading, progresses };
-};
+});

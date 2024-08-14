@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   },
   srcDir: 'src',
   css: ['@/assets/css/main.css'],
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@uploadthing/nuxt'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@pinia/nuxt', '@uploadthing/nuxt'],
   postcss: {
     plugins: {
       tailwindcss: {},

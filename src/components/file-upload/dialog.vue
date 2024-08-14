@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const { onUpload, uploadFiles, isUploading, progresses, uploadedFiles } =
-  useUploadFile('imageUploader');
+const uploadFileStore = useUploadFile();
+
+const { uploadFiles, isUploading, progresses, uploadedFiles } =
+  storeToRefs(uploadFileStore);
 
 const isOpen = ref(false);
 </script>
@@ -33,7 +35,7 @@ const isOpen = ref(false);
         <div class="space-y-2">
           <FileUploadUploader
             :disabled="isUploading"
-            @upload="onUpload"
+            @upload="uploadFileStore.onUpload"
           />
           <FileUploadUploadingProgress
             v-if="progresses && uploadFiles"

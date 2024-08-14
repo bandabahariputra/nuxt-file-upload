@@ -1,13 +1,15 @@
 <script setup lang="ts">
-const { onUpload, uploadFiles, isUploading, progresses, uploadedFiles } =
-  useUploadFile('imageUploader');
+const uploadFileStore = useUploadFile();
+
+const { uploadFiles, isUploading, progresses, uploadedFiles } =
+  storeToRefs(uploadFileStore);
 </script>
 
 <template>
   <div class="space-y-6 py-6">
     <FileUploadUploader
       :disabled="isUploading"
-      @upload="onUpload"
+      @upload="uploadFileStore.onUpload"
     />
     <FileUploadUploadingProgress
       v-if="progresses && uploadFiles"
